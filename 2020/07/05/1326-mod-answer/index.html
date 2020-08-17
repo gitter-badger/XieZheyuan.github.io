@@ -114,6 +114,17 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-book" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -191,6 +202,17 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-book"></i>
+			
+			分类
 		</a>
           
         </li>
@@ -409,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
+                            <a href="/tags/C-C/">
+                                <span class="chip bg-color">C/C++</span>
                             </a>
                         
                             <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B%E4%B8%80%E6%9C%AC%E9%80%9A/">
@@ -421,6 +443,15 @@
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                计算机
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -448,10 +479,54 @@
                 <h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><p><a href="http://ybt.ssoier.cn:8088/problem_show.php?pid=1326" target="_blank" rel="noopener">点击查看</a></p>
 <a id="more"></a>
 
-<h1 id="初次解（有错）"><a href="#初次解（有错）" class="headerlink" title="初次解（有错）"></a>初次解（有错）</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> lli;</span><br><span class="line">lli b,p,k;</span><br><span class="line"><span class="function">lli <span class="title">pow_</span><span class="params">(lli a, lli b)</span></span>&#123;</span><br><span class="line">	lli ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;b;i++) &#123;</span><br><span class="line">		ans *= i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;b&gt;&gt;p&gt;&gt;k;</span><br><span class="line">	lli ans = <span class="built_in">pow</span>(b, p) % k;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="初次解（有错）"><a href="#初次解（有错）" class="headerlink" title="初次解（有错）"></a>初次解（有错）</h1><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cmath></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> <span class="token keyword">int</span> lli<span class="token punctuation">;</span>
+lli b<span class="token punctuation">,</span>p<span class="token punctuation">,</span>k<span class="token punctuation">;</span>
+lli <span class="token function">pow_</span><span class="token punctuation">(</span>lli a<span class="token punctuation">,</span> lli b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    lli ans<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>b<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ans <span class="token operator">*</span><span class="token operator">=</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    cin<span class="token operator">>></span>b<span class="token operator">>></span>p<span class="token operator">>></span>k<span class="token punctuation">;</span>
+    lli ans <span class="token operator">=</span> <span class="token function">pow</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> p<span class="token punctuation">)</span> <span class="token operator">%</span> k<span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>ans<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
+</code></pre>
 <h4 id="错误分析"><a href="#错误分析" class="headerlink" title="错误分析"></a>错误分析</h4><p>pow<strong>太大</strong>，无法写入内存</p>
-<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">ll <span class="title">digui</span><span class="params">(ll b,ll p,ll k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p==<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	ll re=digui(b,p/<span class="number">2</span>,k);</span><br><span class="line">	re = (re * re)% k;</span><br><span class="line">	<span class="keyword">if</span>(p%<span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		re= (re*b)%k;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> re;</span><br><span class="line">	</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ll b,p,k;<span class="built_in">cin</span>&gt;&gt;b&gt;&gt;p&gt;&gt;k;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld^%lld mod %lld=%lld"</span>,b,p,k,digui(b,p,k));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;math.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> <span class="token keyword">int</span> ll<span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+ll <span class="token function">digui</span><span class="token punctuation">(</span>ll b<span class="token punctuation">,</span>ll p<span class="token punctuation">,</span>ll k<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    ll re<span class="token operator">=</span><span class="token function">digui</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>p<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    re <span class="token operator">=</span> <span class="token punctuation">(</span>re <span class="token operator">*</span> re<span class="token punctuation">)</span><span class="token operator">%</span> k<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">%</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        re<span class="token operator">=</span> <span class="token punctuation">(</span>re<span class="token operator">*</span>b<span class="token punctuation">)</span><span class="token operator">%</span>k<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> re<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span> 
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ll b<span class="token punctuation">,</span>p<span class="token punctuation">,</span>k<span class="token punctuation">;</span>cin<span class="token operator">>></span>b<span class="token operator">>></span>p<span class="token operator">>></span>k<span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lld^%lld mod %lld=%lld"</span><span class="token punctuation">,</span>b<span class="token punctuation">,</span>p<span class="token punctuation">,</span>k<span class="token punctuation">,</span><span class="token function">digui</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>p<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
             </div>
             <hr/>
 
@@ -514,8 +589,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
+                                <a href="/tags/C-C/">
+                                    <span class="chip bg-color">C/C++</span>
                                 </a>
                             
                                 <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B%E4%B8%80%E6%9C%AC%E9%80%9A/">
@@ -752,7 +827,7 @@
                             PyInstaller介绍PyInstaller是一个简单的python编译程序，可以把py 源文件编译成 exe 可执行文件（据说还可以变成.app等，但没有亲测过）
 
 PyInstaller安装直接运行pip命令即可
-123python
+python -m
                         
                     </div>
                     <div class="publish-info">
@@ -761,18 +836,18 @@ PyInstaller安装直接运行pip命令即可
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Xie Zheyuan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
@@ -819,18 +894,18 @@ PyInstaller安装直接运行pip命令即可
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Xie Zheyuan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                    数学
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                        <span class="chip bg-color">数学</span>
-                    </a>
                     
                     <a href="/tags/%E6%97%A0%E5%85%AB%E6%95%B0/">
                         <span class="chip bg-color">无八数</span>
@@ -1018,7 +1093,7 @@ PyInstaller安装直接运行pip命令即可
         }
     </style>
     <center><div class="end_msg">
-        网站总字数    <span class="post-count">4.7k</span>
+        网站总字数    <span class="post-count">4.6k</span>
         </div></center>
 
     

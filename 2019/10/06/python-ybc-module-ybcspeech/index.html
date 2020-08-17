@@ -114,6 +114,17 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-book" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -191,6 +202,17 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-book"></i>
+			
+			分类
 		</a>
           
         </li>
@@ -409,10 +431,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                <span class="chip bg-color">计算机</span>
-                            </a>
-                        
                             <a href="/tags/python/">
                                 <span class="chip bg-color">python</span>
                             </a>
@@ -425,6 +443,15 @@
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                计算机
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -450,22 +477,108 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>首先先安装模块</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Python36\python.exe -m pip install ybc-speech</span><br></pre></td></tr></table></figure>
+<pre class=" language-bash"><code class="language-bash">C:\Python36\python.exe -m pip <span class="token function">install</span> ybc-speech</code></pre>
 <a id="more"></a>
 <p><strong>record</strong>:录制音频</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">record</span><span class="params">(filename, seconds=__SECONDS, to_dir=__TO_DIR, rate=__RATE, channels=__CHANNELS, chunk=__CHANNELS)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    功能：录制音频文件。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数 filename 是录制生成的语音文件的名字，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 seconds 是录制时长（单位：秒），默认 5 秒，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 to_dir 是存放语音文件的目录，默认为当前目录，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 rate 是录制采样率，1 代表 16000，0 代表 8000，默认为 1，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 channels 是声道，默认 1，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 chunk 是一次读取的字节数，默认 1024，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回：录制的音频文件的路径。</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">record</span><span class="token punctuation">(</span>filename<span class="token punctuation">,</span> seconds<span class="token operator">=</span>__SECONDS<span class="token punctuation">,</span> to_dir<span class="token operator">=</span>__TO_DIR<span class="token punctuation">,</span> rate<span class="token operator">=</span>__RATE<span class="token punctuation">,</span> channels<span class="token operator">=</span>__CHANNELS<span class="token punctuation">,</span> chunk<span class="token operator">=</span>__CHANNELS<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    功能：录制音频文件。
 
-<h5 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ybc_speech <span class="keyword">as</span> s</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">s.record(<span class="string">"aaa.wav"</span>,<span class="number">10</span>)</span><br><span class="line">os.system(<span class="string">"aaa.wav"</span>)</span><br></pre></td></tr></table></figure>
+    参数 filename 是录制生成的语音文件的名字，
+
+    可选参数 seconds 是录制时长（单位：秒），默认 5 秒，
+
+    可选参数 to_dir 是存放语音文件的目录，默认为当前目录，
+
+    可选参数 rate 是录制采样率，1 代表 16000，0 代表 8000，默认为 1，
+
+    可选参数 channels 是声道，默认 1，
+
+    可选参数 chunk 是一次读取的字节数，默认 1024，
+
+    返回：录制的音频文件的路径。
+    """</span></code></pre>
+<h5 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> ybc_speech <span class="token keyword">as</span> s
+<span class="token keyword">import</span> os
+s<span class="token punctuation">.</span>record<span class="token punctuation">(</span><span class="token string">"aaa.wav"</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"aaa.wav"</span><span class="token punctuation">)</span></code></pre>
 <p><strong>voice2text</strong>:语音转文字</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">voice2text</span><span class="params">(filename=<span class="string">''</span>, rate=__RATE, format_type=__FORMAT_TYPE)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    功能：把语音文件转换成文字。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数 filename 是当前目录下期望转换成文字的语音文件的名字，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 rate 是语音文件的采样率，1 代表 16000，0 代表 8000，默认为 1，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 format_type 是语音文件的类型，默认 PCM 格式，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回：转换成的文字。</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure>
-<h5 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ybc_speech <span class="keyword">as</span> s</span><br><span class="line"><span class="comment">#import os</span></span><br><span class="line">print(s.voice2text(<span class="string">"aaa.wav"</span>))</span><br></pre></td></tr></table></figure>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">voice2text</span><span class="token punctuation">(</span>filename<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">,</span> rate<span class="token operator">=</span>__RATE<span class="token punctuation">,</span> format_type<span class="token operator">=</span>__FORMAT_TYPE<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    功能：把语音文件转换成文字。
+
+    参数 filename 是当前目录下期望转换成文字的语音文件的名字，
+
+    可选参数 rate 是语音文件的采样率，1 代表 16000，0 代表 8000，默认为 1，
+
+    可选参数 format_type 是语音文件的类型，默认 PCM 格式，
+
+    返回：转换成的文字。
+    """</span></code></pre>
+<h5 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> ybc_speech <span class="token keyword">as</span> s
+<span class="token comment" spellcheck="true">#import os</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>voice2text<span class="token punctuation">(</span><span class="token string">"aaa.wav"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p><strong>text2voice</strong>:语音合成</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">text2voice</span><span class="params">(text, filename, speaker=__SPEAKER, speed=__SPEED, aht=__AHT, apc=__APC, volume=__VOLUME, _format=__FORMAT, rate=__RATE)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    功能：把文字转换成语音。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数 text 是待转换的文字，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数 filename 是生成的语音文件的名字，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 speaker 是发音人，1 代表小刚（男声），2 代表小云（女声），默认为1，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 speed 是语速，1 代表正常速度，0.5 代表慢速，2 代表快速，默认为1，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 aht 是音高，默认为 0，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 apc 是音色，默认为 58，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 volume 是音量，默认为 100，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 _format 是语音文件的格式，1 代表 PCM，2 代表 WAV，3代表 MP3，默认为 2 ，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 rate 是语音采样率，1 代表 16000，0 代表 8000，默认为 1，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回：生成的语音文件的名字。</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure>
-<h5 id="示例：-2"><a href="#示例：-2" class="headerlink" title="示例："></a>示例：</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ybc_speech <span class="keyword">as</span> s</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">s.text2voice(<span class="string">"Hello"</span>,<span class="string">"hello.wav"</span>,<span class="number">2</span>)</span><br><span class="line">os.system(<span class="string">"hello.wav"</span>)</span><br></pre></td></tr></table></figure>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">text2voice</span><span class="token punctuation">(</span>text<span class="token punctuation">,</span> filename<span class="token punctuation">,</span> speaker<span class="token operator">=</span>__SPEAKER<span class="token punctuation">,</span> speed<span class="token operator">=</span>__SPEED<span class="token punctuation">,</span> aht<span class="token operator">=</span>__AHT<span class="token punctuation">,</span> apc<span class="token operator">=</span>__APC<span class="token punctuation">,</span> volume<span class="token operator">=</span>__VOLUME<span class="token punctuation">,</span> _format<span class="token operator">=</span>__FORMAT<span class="token punctuation">,</span> rate<span class="token operator">=</span>__RATE<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    功能：把文字转换成语音。
+
+    参数 text 是待转换的文字，
+
+    参数 filename 是生成的语音文件的名字，
+
+    可选参数 speaker 是发音人，1 代表小刚（男声），2 代表小云（女声），默认为1，
+
+    可选参数 speed 是语速，1 代表正常速度，0.5 代表慢速，2 代表快速，默认为1，
+
+    可选参数 aht 是音高，默认为 0，
+
+    可选参数 apc 是音色，默认为 58，
+
+    可选参数 volume 是音量，默认为 100，
+
+    可选参数 _format 是语音文件的格式，1 代表 PCM，2 代表 WAV，3代表 MP3，默认为 2 ，
+
+    可选参数 rate 是语音采样率，1 代表 16000，0 代表 8000，默认为 1，
+
+    返回：生成的语音文件的名字。
+    """</span></code></pre>
+<h5 id="示例：-2"><a href="#示例：-2" class="headerlink" title="示例："></a>示例：</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> ybc_speech <span class="token keyword">as</span> s
+<span class="token keyword">import</span> os
+s<span class="token punctuation">.</span>text2voice<span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">,</span><span class="token string">"hello.wav"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"hello.wav"</span><span class="token punctuation">)</span></code></pre>
 <p><strong>speak</strong>:播放便捷函数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">speak</span><span class="params">(text=<span class="string">''</span>, speaker=__SPEAKER, speed=__SPEED, aht=__AHT, apc=__APC)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    功能：朗读一段文字。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数 text 是待朗读的文字，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 speaker 是发音人，1 代表小刚（男声），2 代表小云（女声），默认为1，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 speed 是语速，1 代表正常速度，0.5 代表慢速，2 代表快速，默认为1，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 aht 是音高，默认为 0，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 apc 是音色，默认为 58，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回：无。</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">speak</span><span class="token punctuation">(</span>text<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">,</span> speaker<span class="token operator">=</span>__SPEAKER<span class="token punctuation">,</span> speed<span class="token operator">=</span>__SPEED<span class="token punctuation">,</span> aht<span class="token operator">=</span>__AHT<span class="token punctuation">,</span> apc<span class="token operator">=</span>__APC<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    功能：朗读一段文字。
+
+    参数 text 是待朗读的文字，
+
+    可选参数 speaker 是发音人，1 代表小刚（男声），2 代表小云（女声），默认为1，
+
+    可选参数 speed 是语速，1 代表正常速度，0.5 代表慢速，2 代表快速，默认为1，
+
+    可选参数 aht 是音高，默认为 0，
+
+    可选参数 apc 是音色，默认为 58，
+
+    返回：无。
+    """</span></code></pre>
 <p><strong>常量表</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">__RATE = <span class="number">16000</span></span><br><span class="line">__FORMAT_TYPE = <span class="number">2</span></span><br><span class="line">__SECONDS = <span class="number">5</span></span><br><span class="line">__TO_DIR = <span class="literal">None</span></span><br><span class="line">__CHANNELS = <span class="number">1</span></span><br><span class="line">__CHUNK = <span class="number">1024</span></span><br><span class="line">__SPEAKER = <span class="number">1</span></span><br><span class="line">__SPEED = <span class="number">1</span></span><br><span class="line">__AHT = <span class="number">0</span></span><br><span class="line">__APC = <span class="number">58</span></span><br><span class="line">__VOLUME = <span class="number">100</span></span><br><span class="line">__FORMAT = <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-python"><code class="language-python">__RATE <span class="token operator">=</span> <span class="token number">16000</span>
+__FORMAT_TYPE <span class="token operator">=</span> <span class="token number">2</span>
+__SECONDS <span class="token operator">=</span> <span class="token number">5</span>
+__TO_DIR <span class="token operator">=</span> None
+__CHANNELS <span class="token operator">=</span> <span class="token number">1</span>
+__CHUNK <span class="token operator">=</span> <span class="token number">1024</span>
+__SPEAKER <span class="token operator">=</span> <span class="token number">1</span>
+__SPEED <span class="token operator">=</span> <span class="token number">1</span>
+__AHT <span class="token operator">=</span> <span class="token number">0</span>
+__APC <span class="token operator">=</span> <span class="token number">58</span>
+__VOLUME <span class="token operator">=</span> <span class="token number">100</span>
+__FORMAT <span class="token operator">=</span> <span class="token number">2</span>
+
+</code></pre>
 <p>首发于CSDN博客<a href="https://blog.csdn.net/pythonbilly" target="_blank" rel="noopener">https://blog.csdn.net/pythonbilly</a></p>
 
             </div>
@@ -529,10 +642,6 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                    <span class="chip bg-color">计算机</span>
-                                </a>
                             
                                 <a href="/tags/python/">
                                     <span class="chip bg-color">python</span>
@@ -777,7 +886,7 @@ prettytable
 
 使用CMD程序，实现商店管理python3+pycharm
 源码getPicke.py 初始化PICKLE
-1234data="[[\"6953
+data="[[\"69537873
                         
                     </div>
                     <div class="publish-info">
@@ -786,8 +895,12 @@ prettytable
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Xie Zheyuan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -823,10 +936,10 @@ prettytable
                     <div class="summary block-with-text">
                         
                             首先先安装模块
-1C:\Python36\python.exe -m pip install ybc-speech
+C:\Python36\python.exe -m pip install ybc-speech
 
 record:录制音频
-123456789101112131415161718def record(filename, s
+def record(filename, seconds=__SECONDS, to_dir=__T
                         
                     </div>
                     <div class="publish-info">
@@ -835,8 +948,12 @@ record:录制音频
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Xie Zheyuan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -844,10 +961,6 @@ record:录制音频
 
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
@@ -1039,7 +1152,7 @@ record:录制音频
         }
     </style>
     <center><div class="end_msg">
-        网站总字数    <span class="post-count">4.7k</span>
+        网站总字数    <span class="post-count">4.6k</span>
         </div></center>
 
     

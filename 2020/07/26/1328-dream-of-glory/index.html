@@ -114,6 +114,17 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-book" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -191,6 +202,17 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-book"></i>
+			
+			分类
 		</a>
           
         </li>
@@ -409,18 +431,27 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B%E4%B8%80%E6%9C%AC%E9%80%9A/">
-                                <span class="chip bg-color">信息学奥赛一本通</span>
+                            <a href="/tags/C-C/">
+                                <span class="chip bg-color">C/C++</span>
                             </a>
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C</span>
+                            <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B%E4%B8%80%E6%9C%AC%E9%80%9A/">
+                                <span class="chip bg-color">信息学奥赛一本通</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                计算机
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -457,17 +488,297 @@
 </div><h3>【输出】</h3>
 <div class=xxbox><p>输出一个整数，表示最少需要交换几次能达到平衡状态。</p>
 </div><h3>【输入样例】</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">2 1 4 3</span><br></pre></td></tr></table></figure>
+```
+4
+2 1 4 3```
 <font size=3><h3>【输出样例】</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+```
+2
+```
 <a id="more"></a> 
 
-<h1 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h1><h2 id="Linux风格C-代码"><a href="#Linux风格C-代码" class="headerlink" title="Linux风格C++代码"></a>Linux风格C++代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> source[<span class="number">10005</span>];</span><br><span class="line"><span class="keyword">int</span> ed[<span class="number">10005</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">px</span><span class="params">(<span class="keyword">int</span> start=<span class="number">0</span>,<span class="keyword">int</span> <span class="built_in">end</span>=n<span class="number">-1</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">end</span>-start&lt;=<span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> mid = (start+<span class="built_in">end</span>)/<span class="number">2</span>;</span><br><span class="line">	px(start, mid);</span><br><span class="line">	px(mid+<span class="number">1</span>, <span class="built_in">end</span>);</span><br><span class="line">	<span class="keyword">int</span> i=start,j=mid+<span class="number">1</span>,cnt=start;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=mid&amp;&amp;j&lt;=<span class="built_in">end</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span>(source[i]&lt;=source[j]) &#123;</span><br><span class="line">			ed[cnt]=source[i];</span><br><span class="line">			i++;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			ans+=(mid+<span class="number">1</span>-i);</span><br><span class="line">			ed[cnt]=source[j];</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		cnt++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(i&lt;=mid) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;=(mid-i); k++) &#123;</span><br><span class="line">			ed[cnt+k]=source[i+k];</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(j&lt;=<span class="built_in">end</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">0</span>; l&lt;=(<span class="built_in">end</span>-j); l++) &#123;</span><br><span class="line">			ed[cnt+l]=source[j+l];</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=mid) &#123;</span><br><span class="line">		ed[cnt++]=source[i++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(j&lt;=<span class="built_in">end</span>) &#123;</span><br><span class="line">		ed[cnt++]=source[j++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=start; i&lt;=<span class="built_in">end</span>; i++) &#123;</span><br><span class="line">		source[i]=ed[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;source[i];</span><br><span class="line">	&#125;</span><br><span class="line">	px();</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Allman风格"><a href="#Allman风格" class="headerlink" title="Allman风格"></a>Allman风格</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> source[<span class="number">10005</span>];</span><br><span class="line"><span class="keyword">int</span> ed[<span class="number">10005</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">px</span><span class="params">(<span class="keyword">int</span> start=<span class="number">0</span>,<span class="keyword">int</span> <span class="built_in">end</span>=n<span class="number">-1</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">end</span>-start&lt;=<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> mid = (start+<span class="built_in">end</span>)/<span class="number">2</span>;</span><br><span class="line">	px(start, mid);</span><br><span class="line">	px(mid+<span class="number">1</span>, <span class="built_in">end</span>);</span><br><span class="line">	<span class="keyword">int</span> i=start,j=mid+<span class="number">1</span>,cnt=start;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=mid&amp;&amp;j&lt;=<span class="built_in">end</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(source[i]&lt;=source[j])</span><br><span class="line">		&#123;</span><br><span class="line">			ed[cnt]=source[i];</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			ans+=(mid+<span class="number">1</span>-i);</span><br><span class="line">			ed[cnt]=source[j];</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		cnt++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(i&lt;=mid)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;=(mid-i); k++)</span><br><span class="line">		&#123;</span><br><span class="line">			ed[cnt+k]=source[i+k];</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(j&lt;=<span class="built_in">end</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">0</span>; l&lt;=(<span class="built_in">end</span>-j); l++)</span><br><span class="line">		&#123;</span><br><span class="line">			ed[cnt+l]=source[j+l];</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=mid)</span><br><span class="line">	&#123;</span><br><span class="line">		ed[cnt++]=source[i++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(j&lt;=<span class="built_in">end</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		ed[cnt++]=source[j++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=start; i&lt;=<span class="built_in">end</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		source[i]=ed[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;source[i];</span><br><span class="line">	&#125;</span><br><span class="line">	px();</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h1><h2 id="Linux风格C-代码"><a href="#Linux风格C-代码" class="headerlink" title="Linux风格C++代码"></a>Linux风格C++代码</h2><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstring></span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> source<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> ed<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n<span class="token punctuation">;</span>
+<span class="token keyword">int</span> ans<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">px</span><span class="token punctuation">(</span><span class="token keyword">int</span> start<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token keyword">int</span> end<span class="token operator">=</span>n<span class="token number">-1</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
 
-<h2 id="Java风格"><a href="#Java风格" class="headerlink" title="Java风格"></a>Java风格</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> source[<span class="number">10005</span>];</span><br><span class="line"><span class="keyword">int</span> ed[<span class="number">10005</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">px</span><span class="params">(<span class="keyword">int</span> start=<span class="number">0</span>,<span class="keyword">int</span> <span class="built_in">end</span>=n<span class="number">-1</span>)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">end</span>-start&lt;=<span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> mid = (start+<span class="built_in">end</span>)/<span class="number">2</span>;</span><br><span class="line">	px(start, mid);</span><br><span class="line">	px(mid+<span class="number">1</span>, <span class="built_in">end</span>);</span><br><span class="line">	<span class="keyword">int</span> i=start,j=mid+<span class="number">1</span>,cnt=start;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=mid&amp;&amp;j&lt;=<span class="built_in">end</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span>(source[i]&lt;=source[j]) &#123;</span><br><span class="line">			ed[cnt]=source[i];</span><br><span class="line">			i++;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			ans+=(mid+<span class="number">1</span>-i);</span><br><span class="line">			ed[cnt]=source[j];</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		cnt++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(i&lt;=mid) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;=(mid-i); k++) &#123;</span><br><span class="line">			ed[cnt+k]=source[i+k];</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(j&lt;=<span class="built_in">end</span>) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">0</span>; l&lt;=(<span class="built_in">end</span>-j); l++) &#123;</span><br><span class="line">			ed[cnt+l]=source[j+l];</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=mid) &#123;</span><br><span class="line">		ed[cnt++]=source[i++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(j&lt;=<span class="built_in">end</span>) &#123;</span><br><span class="line">		ed[cnt++]=source[j++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=start; i&lt;=<span class="built_in">end</span>; i++) &#123;</span><br><span class="line">		source[i]=ed[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;source[i];</span><br><span class="line">	&#125;</span><br><span class="line">	px();</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="GNU风格"><a href="#GNU风格" class="headerlink" title="GNU风格"></a>GNU风格</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> source[<span class="number">10005</span>];</span><br><span class="line"><span class="keyword">int</span> ed[<span class="number">10005</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">px</span><span class="params">(<span class="keyword">int</span> start=<span class="number">0</span>,<span class="keyword">int</span> <span class="built_in">end</span>=n<span class="number">-1</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">end</span>-start&lt;=<span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> mid = (start+<span class="built_in">end</span>)/<span class="number">2</span>;</span><br><span class="line">	px(start, mid);</span><br><span class="line">	px(mid+<span class="number">1</span>, <span class="built_in">end</span>);</span><br><span class="line">	<span class="keyword">int</span> i=start,j=mid+<span class="number">1</span>,cnt=start;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=mid&amp;&amp;j&lt;=<span class="built_in">end</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(source[i]&lt;=source[j])</span><br><span class="line">				&#123;</span><br><span class="line">					ed[cnt]=source[i];</span><br><span class="line">					i++;</span><br><span class="line">				&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					ans+=(mid+<span class="number">1</span>-i);</span><br><span class="line">					ed[cnt]=source[j];</span><br><span class="line">					j++;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			cnt++;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">if</span>(i&lt;=mid)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;=(mid-i); k++)</span><br><span class="line">				&#123;</span><br><span class="line">					ed[cnt+k]=source[i+k];</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">if</span>(j&lt;=<span class="built_in">end</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">0</span>; l&lt;=(<span class="built_in">end</span>-j); l++)</span><br><span class="line">				&#123;</span><br><span class="line">					ed[cnt+l]=source[j+l];</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=mid)</span><br><span class="line">		&#123;</span><br><span class="line">			ed[cnt++]=source[i++];</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">while</span>(j&lt;=<span class="built_in">end</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ed[cnt++]=source[j++];</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=start; i&lt;=<span class="built_in">end</span>; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			source[i]=ed[i];</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;source[i];</span><br><span class="line">		&#125;</span><br><span class="line">	px();</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>end<span class="token operator">-</span>start<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
+    <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>start<span class="token operator">+</span>end<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token function">px</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">px</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token operator">=</span>start<span class="token punctuation">,</span>j<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>cnt<span class="token operator">=</span>start<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token operator">&amp;&amp;</span>j<span class="token operator">&lt;=</span>end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;=</span>source<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            ans<span class="token operator">+</span><span class="token operator">=</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            j<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+
+        cnt<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> k<span class="token operator">&lt;=</span><span class="token punctuation">(</span>mid<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token operator">+</span>k<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>i<span class="token operator">+</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&lt;=</span>end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> l<span class="token operator">&lt;=</span><span class="token punctuation">(</span>end<span class="token operator">-</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span> l<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token operator">+</span>l<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>j<span class="token operator">+</span>l<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ed<span class="token punctuation">[</span>cnt<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>j<span class="token operator">&lt;=</span>end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ed<span class="token punctuation">[</span>cnt<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>start<span class="token punctuation">;</span> i<span class="token operator">&lt;=</span>end<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>ed<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cin<span class="token operator">>></span>n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cin<span class="token operator">>></span>source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">px</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>ans<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h2 id="Allman风格"><a href="#Allman风格" class="headerlink" title="Allman风格"></a>Allman风格</h2><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstring></span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> source<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> ed<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n<span class="token punctuation">;</span>
+<span class="token keyword">int</span> ans<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">px</span><span class="token punctuation">(</span><span class="token keyword">int</span> start<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token keyword">int</span> end<span class="token operator">=</span>n<span class="token number">-1</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>end<span class="token operator">-</span>start<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>start<span class="token operator">+</span>end<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token function">px</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">px</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token operator">=</span>start<span class="token punctuation">,</span>j<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>cnt<span class="token operator">=</span>start<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token operator">&amp;&amp;</span>j<span class="token operator">&lt;=</span>end<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;=</span>source<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+            ans<span class="token operator">+</span><span class="token operator">=</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            j<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+
+        cnt<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> k<span class="token operator">&lt;=</span><span class="token punctuation">(</span>mid<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token operator">+</span>k<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>i<span class="token operator">+</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&lt;=</span>end<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> l<span class="token operator">&lt;=</span><span class="token punctuation">(</span>end<span class="token operator">-</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span> l<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token operator">+</span>l<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>j<span class="token operator">+</span>l<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        ed<span class="token punctuation">[</span>cnt<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>j<span class="token operator">&lt;=</span>end<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        ed<span class="token punctuation">[</span>cnt<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>start<span class="token punctuation">;</span> i<span class="token operator">&lt;=</span>end<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>ed<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cin<span class="token operator">>></span>n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cin<span class="token operator">>></span>source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">px</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>ans<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h2 id="Java风格"><a href="#Java风格" class="headerlink" title="Java风格"></a>Java风格</h2><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstring></span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> source<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> ed<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n<span class="token punctuation">;</span>
+<span class="token keyword">int</span> ans<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">px</span><span class="token punctuation">(</span><span class="token keyword">int</span> start<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token keyword">int</span> end<span class="token operator">=</span>n<span class="token number">-1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>end<span class="token operator">-</span>start<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>start<span class="token operator">+</span>end<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token function">px</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">px</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token operator">=</span>start<span class="token punctuation">,</span>j<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>cnt<span class="token operator">=</span>start<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token operator">&amp;&amp;</span>j<span class="token operator">&lt;=</span>end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;=</span>source<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            ans<span class="token operator">+</span><span class="token operator">=</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            j<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+
+        cnt<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> k<span class="token operator">&lt;=</span><span class="token punctuation">(</span>mid<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token operator">+</span>k<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>i<span class="token operator">+</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&lt;=</span>end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> l<span class="token operator">&lt;=</span><span class="token punctuation">(</span>end<span class="token operator">-</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span> l<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token operator">+</span>l<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>j<span class="token operator">+</span>l<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ed<span class="token punctuation">[</span>cnt<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>j<span class="token operator">&lt;=</span>end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ed<span class="token punctuation">[</span>cnt<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>start<span class="token punctuation">;</span> i<span class="token operator">&lt;=</span>end<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>ed<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cin<span class="token operator">>></span>n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cin<span class="token operator">>></span>source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">px</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>ans<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="GNU风格"><a href="#GNU风格" class="headerlink" title="GNU风格"></a>GNU风格</h2><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstring></span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> source<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> ed<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n<span class="token punctuation">;</span>
+<span class="token keyword">int</span> ans<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">px</span><span class="token punctuation">(</span><span class="token keyword">int</span> start<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token keyword">int</span> end<span class="token operator">=</span>n<span class="token number">-1</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>end<span class="token operator">-</span>start<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>start<span class="token operator">+</span>end<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token function">px</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">px</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token operator">=</span>start<span class="token punctuation">,</span>j<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>cnt<span class="token operator">=</span>start<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token operator">&amp;&amp;</span>j<span class="token operator">&lt;=</span>end<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;=</span>source<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    ed<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    i<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+                <span class="token punctuation">{</span>
+                    ans<span class="token operator">+</span><span class="token operator">=</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    ed<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    j<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+
+
+            cnt<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> k<span class="token operator">&lt;=</span><span class="token punctuation">(</span>mid<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    ed<span class="token punctuation">[</span>cnt<span class="token operator">+</span>k<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>i<span class="token operator">+</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+                <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&lt;=</span>end<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> l<span class="token operator">&lt;=</span><span class="token punctuation">(</span>end<span class="token operator">-</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span> l<span class="token operator">++</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    ed<span class="token punctuation">[</span>cnt<span class="token operator">+</span>l<span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>j<span class="token operator">+</span>l<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+                <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>j<span class="token operator">&lt;=</span>end<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            ed<span class="token punctuation">[</span>cnt<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>source<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>start<span class="token punctuation">;</span> i<span class="token operator">&lt;=</span>end<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>ed<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cin<span class="token operator">>></span>n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cin<span class="token operator">>></span>source<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token function">px</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>ans<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p><img src="/blogimages/1328-cpp-judge-answer.png" alt="用户名:xiezheyuan，题目编号:1328，运行编号:7757442，代码长度:906Bytes
 通过"></p>
 
@@ -533,12 +844,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B%E4%B8%80%E6%9C%AC%E9%80%9A/">
-                                    <span class="chip bg-color">信息学奥赛一本通</span>
+                                <a href="/tags/C-C/">
+                                    <span class="chip bg-color">C/C++</span>
                                 </a>
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C</span>
+                                <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B%E4%B8%80%E6%9C%AC%E9%80%9A/">
+                                    <span class="chip bg-color">信息学奥赛一本通</span>
                                 </a>
                             
                         </div>
@@ -781,8 +1092,12 @@ Prince对他在这片大陆上维护的秩序感到满意，于是决定启程�
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Xie Zheyuan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -791,12 +1106,12 @@ Prince对他在这片大陆上维护的秩序感到满意，于是决定启程�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B%E4%B8%80%E6%9C%AC%E9%80%9A/">
-                        <span class="chip bg-color">信息学奥赛一本通</span>
+                    <a href="/tags/C-C/">
+                        <span class="chip bg-color">C/C++</span>
                     </a>
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C</span>
+                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B%E4%B8%80%E6%9C%AC%E9%80%9A/">
+                        <span class="chip bg-color">信息学奥赛一本通</span>
                     </a>
                     
                 </div>
@@ -825,7 +1140,7 @@ Prince对他在这片大陆上维护的秩序感到满意，于是决定启程�
                             PyInstaller介绍PyInstaller是一个简单的python编译程序，可以把py 源文件编译成 exe 可执行文件（据说还可以变成.app等，但没有亲测过）
 
 PyInstaller安装直接运行pip命令即可
-123python
+python -m
                         
                     </div>
                     <div class="publish-info">
@@ -834,18 +1149,18 @@ PyInstaller安装直接运行pip命令即可
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Xie Zheyuan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
@@ -1037,7 +1352,7 @@ PyInstaller安装直接运行pip命令即可
         }
     </style>
     <center><div class="end_msg">
-        网站总字数    <span class="post-count">4.7k</span>
+        网站总字数    <span class="post-count">4.6k</span>
         </div></center>
 
     

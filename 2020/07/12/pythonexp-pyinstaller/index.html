@@ -114,6 +114,17 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-book" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -191,6 +202,17 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-book"></i>
+			
+			分类
 		</a>
           
         </li>
@@ -409,10 +431,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                <span class="chip bg-color">计算机</span>
-                            </a>
-                        
                             <a href="/tags/python/">
                                 <span class="chip bg-color">python</span>
                             </a>
@@ -425,6 +443,15 @@
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                计算机
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -452,15 +479,16 @@
                 <h1 id="PyInstaller介绍"><a href="#PyInstaller介绍" class="headerlink" title="PyInstaller介绍"></a>PyInstaller介绍</h1><p>PyInstaller是一个简单的python编译程序，可以把<strong>py</strong> 源文件编译成 <strong>exe</strong> 可执行文件（据说还可以变成.app等，但没有亲测过）</p>
 <a id="more"></a>
 <h1 id="PyInstaller安装"><a href="#PyInstaller安装" class="headerlink" title="PyInstaller安装"></a>PyInstaller安装</h1><p>直接运行pip命令即可</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python <span class="literal">-m</span> pip install pyinstaller //Windows/MS<span class="literal">-DOS</span></span><br><span class="line">pip install pyinstaller //Liunx/Unix</span><br><span class="line">pip3 install pyinstaller //Mac</span><br></pre></td></tr></table></figure>
-
+<pre class=" language-powershell"><code class="language-powershell">python <span class="token operator">-</span>m pip install pyinstaller <span class="token operator">/</span><span class="token operator">/</span>Windows<span class="token operator">/</span>MS<span class="token operator">-</span>DOS
+pip install pyinstaller <span class="token operator">/</span><span class="token operator">/</span>Liunx<span class="token operator">/</span>Unix
+pip3 install pyinstaller <span class="token operator">/</span><span class="token operator">/</span>Mac</code></pre>
 <blockquote>
 <p>注：如果下载过慢或超时(Timeout)那么可以选择清华镜像，详细参考 <a href="https://www.cnblogs.com/wqpkita/p/7248525.html" target="_blank" rel="noopener">让python pip使用国内镜像(Cnblog)</a></p>
 </blockquote>
 <h1 id="PyInstaller使用"><a href="#PyInstaller使用" class="headerlink" title="PyInstaller使用"></a>PyInstaller使用</h1><h2 id="写一个python程序"><a href="#写一个python程序" class="headerlink" title="写一个python程序"></a>写一个python程序</h2><p>1.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Hello World"</span>)</span><br></pre></td></tr></table></figure>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span></code></pre>
 <p><strong>strong text</strong></p>
-<h2 id="尝试编译"><a href="#尝试编译" class="headerlink" title="尝试编译"></a>尝试编译</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python <span class="literal">-m</span> PyInstaller <span class="number">1</span>.py</span><br></pre></td></tr></table></figure>
+<h2 id="尝试编译"><a href="#尝试编译" class="headerlink" title="尝试编译"></a>尝试编译</h2><pre class=" language-powershell"><code class="language-powershell">python <span class="token operator">-</span>m PyInstaller 1<span class="token punctuation">.</span>py</code></pre>
 <p>会生成dist目录，dist目录下有1目录，里面就是所有文件</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="w"><a href="#w" class="headerlink" title="-w"></a>-w</h3><p>生成GUI程序（无CMD窗口）</p>
 <h3 id="F"><a href="#F" class="headerlink" title="-F"></a>-F</h3><p>生成单个文件</p>
@@ -527,10 +555,6 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                                    <span class="chip bg-color">计算机</span>
-                                </a>
                             
                                 <a href="/tags/python/">
                                     <span class="chip bg-color">python</span>
@@ -779,8 +803,12 @@ Prince对他在这片大陆上维护的秩序感到满意，于是决定启程�
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Xie Zheyuan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -788,12 +816,12 @@ Prince对他在这片大陆上维护的秩序感到满意，于是决定启程�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B%E4%B8%80%E6%9C%AC%E9%80%9A/">
-                        <span class="chip bg-color">信息学奥赛一本通</span>
+                    <a href="/tags/C-C/">
+                        <span class="chip bg-color">C/C++</span>
                     </a>
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C</span>
+                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B%E4%B8%80%E6%9C%AC%E9%80%9A/">
+                        <span class="chip bg-color">信息学奥赛一本通</span>
                     </a>
                     
                 </div>
@@ -822,7 +850,12 @@ Prince对他在这片大陆上维护的秩序感到满意，于是决定启程�
                             题目：点击查看
 
 
-初次解（有错）123456789101112131415161718#include&lt;iostream&gt;#include&lt;cmath&gt;using namespace std;typedef lon
+初次解（有错）#include&lt;iostream>
+#include&lt;cmath>
+using namespace std;
+typedef long long int lli;
+lli b,p,k;
+lli
                         
                     </div>
                     <div class="publish-info">
@@ -831,8 +864,12 @@ Prince对他在这片大陆上维护的秩序感到满意，于是决定启程�
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Xie Zheyuan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -840,8 +877,8 @@ Prince对他在这片大陆上维护的秩序感到满意，于是决定启程�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/C-C/">
+                        <span class="chip bg-color">C/C++</span>
                     </a>
                     
                     <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B%E4%B8%80%E6%9C%AC%E9%80%9A/">
@@ -1030,7 +1067,7 @@ Prince对他在这片大陆上维护的秩序感到满意，于是决定启程�
         }
     </style>
     <center><div class="end_msg">
-        网站总字数    <span class="post-count">4.7k</span>
+        网站总字数    <span class="post-count">4.6k</span>
         </div></center>
 
     

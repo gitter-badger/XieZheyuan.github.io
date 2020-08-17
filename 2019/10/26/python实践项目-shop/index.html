@@ -114,6 +114,17 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-book" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -191,6 +202,17 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-book"></i>
+			
+			分类
 		</a>
           
         </li>
@@ -418,6 +440,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                计算机
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -449,11 +480,115 @@
 </ul>
 <p>使用CMD程序，实现商店管理<br>python3+pycharm</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><strong>getPicke.py</strong> 初始化PICKLE</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data=<span class="string">"[[\"6953787355327\",\"晨光24色水彩笔\",\"25\"]]"</span></span><br><span class="line">obj=open(<span class="string">"libray/shop.pkl"</span>,<span class="string">"w"</span>)</span><br><span class="line">obj.write(data)</span><br><span class="line">obj.close()</span><br></pre></td></tr></table></figure>
+<pre class=" language-python"><code class="language-python">data<span class="token operator">=</span><span class="token string">"[[\"6953787355327\",\"晨光24色水彩笔\",\"25\"]]"</span>
+obj<span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span><span class="token string">"w"</span><span class="token punctuation">)</span>
+obj<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+obj<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p><strong>pklAdmin.py</strong> 管理</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Shop1.0 Pkl File Admin Program"</span>)</span><br><span class="line"><span class="keyword">import</span> prettytable</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    cmd=input(<span class="string">"&gt;&gt;&gt;"</span>)</span><br><span class="line">    <span class="keyword">if</span> cmd == <span class="string">"quit"</span>:</span><br><span class="line">        print(<span class="string">"exiting..."</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">elif</span> cmd == <span class="string">"exit"</span>:</span><br><span class="line">        print(<span class="string">"Do you want to exit now?"</span>)</span><br><span class="line">        option=input(<span class="string">"(y/&lt;Other&gt;)"</span>)</span><br><span class="line">        <span class="keyword">if</span>(option == <span class="string">"y"</span> <span class="keyword">or</span> option == <span class="string">"Y"</span>):</span><br><span class="line">            print(<span class="string">"exiting..."</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"Canceled to exit"</span>)</span><br><span class="line">    <span class="keyword">elif</span> cmd == <span class="string">"read"</span> <span class="keyword">or</span> cmd == <span class="string">"Read"</span>:</span><br><span class="line">        print(<span class="string">"You Want To Read Commodities."</span>)</span><br><span class="line">        tobj=prettytable.PrettyTable([</span><br><span class="line">            <span class="string">"Bar code"</span>,</span><br><span class="line">            <span class="string">"Trade name"</span>,</span><br><span class="line">            <span class="string">"Price(RMB)"</span></span><br><span class="line">        ])</span><br><span class="line">        o=eval(open(<span class="string">"libray/shop.pkl"</span>,<span class="string">"r"</span>,encoding=<span class="string">"gbk"</span>).read())</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> o:</span><br><span class="line">            tobj.add_row(i)</span><br><span class="line">        print(tobj)</span><br><span class="line">    <span class="keyword">elif</span> cmd == <span class="string">"add"</span>:</span><br><span class="line">        print(<span class="string">"You Want To Add a Commodity"</span>)</span><br><span class="line">        s=input(<span class="string">"Input Commodity Name..."</span>)</span><br><span class="line">        p=input(<span class="string">"Input Commodity Price..."</span>)</span><br><span class="line">        b = input(<span class="string">"Input Commodity Bar Code..."</span>)</span><br><span class="line">        o = eval(open(<span class="string">"libray/shop.pkl"</span>, <span class="string">"r"</span>,encoding=<span class="string">"gbk"</span>).read())</span><br><span class="line">        o.append([b,s,p])</span><br><span class="line">        obj=open(<span class="string">"libray/shop.pkl"</span>,<span class="string">"w"</span>)</span><br><span class="line">        obj.write(str(o))</span><br><span class="line">        obj.close()</span><br><span class="line">        print(<span class="string">"Now,Add Right..."</span>)</span><br><span class="line">        tobj=prettytable.PrettyTable([</span><br><span class="line">            <span class="string">"Bar code"</span>,</span><br><span class="line">            <span class="string">"Trade name"</span>,</span><br><span class="line">            <span class="string">"Price(RMB)"</span></span><br><span class="line">        ])</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> o:</span><br><span class="line">            tobj.add_row(i)</span><br><span class="line">        print(tobj)</span><br><span class="line">    <span class="keyword">elif</span> cmd == <span class="string">"help"</span>:</span><br><span class="line">        print(<span class="string">"PklAdmin Document"</span>)</span><br><span class="line">        print(<span class="string">'''</span></span><br><span class="line"><span class="string">        add:Add items to program directory.</span></span><br><span class="line"><span class="string">        read/Read:Displays all saved items.</span></span><br><span class="line"><span class="string">        exit:Quit program(can cancel).</span></span><br><span class="line"><span class="string">        quit:Quit program(can't cancel)</span></span><br><span class="line"><span class="string">        del/delete/remove:Remove items to program directory.</span></span><br><span class="line"><span class="string">        help:Displays this.</span></span><br><span class="line"><span class="string">        '''</span>)</span><br><span class="line">    <span class="keyword">elif</span> cmd == <span class="string">"del"</span> <span class="keyword">or</span> cmd == <span class="string">"delete"</span> <span class="keyword">or</span> cmd == <span class="string">"remove"</span>:</span><br><span class="line">        print(<span class="string">"You want to delete a commodity"</span>)</span><br><span class="line">        b=input(<span class="string">"Input Commodity Bar Code..."</span>)</span><br><span class="line">        o = eval(open(<span class="string">"libray/shop.pkl"</span>, <span class="string">"r"</span>, encoding=<span class="string">"gbk"</span>).read())</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> o:</span><br><span class="line">            <span class="keyword">if</span>(i[<span class="number">0</span>] == b):</span><br><span class="line">                print(<span class="string">"Find!"</span>,i)</span><br><span class="line">                o.remove(i)</span><br><span class="line">        print(<span class="string">"Now,Remove Right..."</span>)</span><br><span class="line">        tobj = prettytable.PrettyTable([</span><br><span class="line">            <span class="string">"Bar code"</span>,</span><br><span class="line">            <span class="string">"Trade name"</span>,</span><br><span class="line">            <span class="string">"Price(RMB)"</span></span><br><span class="line">        ])</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> o:</span><br><span class="line">            tobj.add_row(i)</span><br><span class="line">        print(tobj)</span><br><span class="line">        obj = open(<span class="string">"libray/shop.pkl"</span>, <span class="string">"w"</span>)</span><br><span class="line">        obj.write(str(o))</span><br><span class="line">        obj.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"No such command!Please verify the input."</span>)</span><br></pre></td></tr></table></figure>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Shop1.0 Pkl File Admin Program"</span><span class="token punctuation">)</span>
+<span class="token keyword">import</span> prettytable
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    cmd<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">">>>"</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> cmd <span class="token operator">==</span> <span class="token string">"quit"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"exiting..."</span><span class="token punctuation">)</span>
+        <span class="token keyword">break</span>
+    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"exit"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Do you want to exit now?"</span><span class="token punctuation">)</span>
+        option<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"(y/&lt;Other>)"</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>option <span class="token operator">==</span> <span class="token string">"y"</span> <span class="token operator">or</span> option <span class="token operator">==</span> <span class="token string">"Y"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"exiting..."</span><span class="token punctuation">)</span>
+            <span class="token keyword">break</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Canceled to exit"</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"read"</span> <span class="token operator">or</span> cmd <span class="token operator">==</span> <span class="token string">"Read"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"You Want To Read Commodities."</span><span class="token punctuation">)</span>
+        tobj<span class="token operator">=</span>prettytable<span class="token punctuation">.</span>PrettyTable<span class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token string">"Bar code"</span><span class="token punctuation">,</span>
+            <span class="token string">"Trade name"</span><span class="token punctuation">,</span>
+            <span class="token string">"Price(RMB)"</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span>
+        o<span class="token operator">=</span>eval<span class="token punctuation">(</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
+            tobj<span class="token punctuation">.</span>add_row<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>tobj<span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"add"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"You Want To Add a Commodity"</span><span class="token punctuation">)</span>
+        s<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"Input Commodity Name..."</span><span class="token punctuation">)</span>
+        p<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"Input Commodity Price..."</span><span class="token punctuation">)</span>
+        b <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"Input Commodity Bar Code..."</span><span class="token punctuation">)</span>
+        o <span class="token operator">=</span> eval<span class="token punctuation">(</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        o<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>b<span class="token punctuation">,</span>s<span class="token punctuation">,</span>p<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        obj<span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span><span class="token string">"w"</span><span class="token punctuation">)</span>
+        obj<span class="token punctuation">.</span>write<span class="token punctuation">(</span>str<span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        obj<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Now,Add Right..."</span><span class="token punctuation">)</span>
+        tobj<span class="token operator">=</span>prettytable<span class="token punctuation">.</span>PrettyTable<span class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token string">"Bar code"</span><span class="token punctuation">,</span>
+            <span class="token string">"Trade name"</span><span class="token punctuation">,</span>
+            <span class="token string">"Price(RMB)"</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
+            tobj<span class="token punctuation">.</span>add_row<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>tobj<span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"help"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"PklAdmin Document"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token triple-quoted-string string">'''
+        add:Add items to program directory.
+        read/Read:Displays all saved items.
+        exit:Quit program(can cancel).
+        quit:Quit program(can't cancel)
+        del/delete/remove:Remove items to program directory.
+        help:Displays this.
+        '''</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"del"</span> <span class="token operator">or</span> cmd <span class="token operator">==</span> <span class="token string">"delete"</span> <span class="token operator">or</span> cmd <span class="token operator">==</span> <span class="token string">"remove"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"You want to delete a commodity"</span><span class="token punctuation">)</span>
+        b<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"Input Commodity Bar Code..."</span><span class="token punctuation">)</span>
+        o <span class="token operator">=</span> eval<span class="token punctuation">(</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Find!"</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span>
+                o<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Now,Remove Right..."</span><span class="token punctuation">)</span>
+        tobj <span class="token operator">=</span> prettytable<span class="token punctuation">.</span>PrettyTable<span class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token string">"Bar code"</span><span class="token punctuation">,</span>
+            <span class="token string">"Trade name"</span><span class="token punctuation">,</span>
+            <span class="token string">"Price(RMB)"</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
+            tobj<span class="token punctuation">.</span>add_row<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>tobj<span class="token punctuation">)</span>
+        obj <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span>
+        obj<span class="token punctuation">.</span>write<span class="token punctuation">(</span>str<span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        obj<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"No such command!Please verify the input."</span><span class="token punctuation">)</span>
+
+</code></pre>
 <p><strong>main1.py</strong> 主程序</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"SHOP 1.0 COMMAND PROGRAM"</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(b)</span>:</span></span><br><span class="line">    o = eval(open(<span class="string">"libray/shop.pkl"</span>, <span class="string">"r"</span>, encoding=<span class="string">"gbk"</span>).read())</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> o:</span><br><span class="line">        <span class="keyword">if</span>(i[<span class="number">0</span>] == b):</span><br><span class="line">            <span class="keyword">return</span> i</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    print(<span class="string">"input item times..."</span>)</span><br><span class="line">    t=input(<span class="string">"..."</span>)</span><br><span class="line">    <span class="keyword">if</span>(t == <span class="literal">None</span> <span class="keyword">or</span> t == <span class="string">""</span>):</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    t=int(t)</span><br><span class="line">    sum_=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(t):</span><br><span class="line">        p=get(input(<span class="string">"Bar code..."</span>))</span><br><span class="line">        <span class="keyword">if</span>(p == <span class="literal">False</span>):</span><br><span class="line">            print(<span class="string">"Don't have this item"</span>)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        sum_= sum_ + int(p[<span class="number">2</span>])</span><br><span class="line">        print(p[<span class="number">1</span>],<span class="string">"RMB"</span>+p[<span class="number">2</span>])</span><br><span class="line">    print(<span class="string">"Sum is %d"</span>%sum_)</span><br></pre></td></tr></table></figure>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"SHOP 1.0 COMMAND PROGRAM"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    o <span class="token operator">=</span> eval<span class="token punctuation">(</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> i
+    <span class="token keyword">return</span> <span class="token boolean">False</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"input item times..."</span><span class="token punctuation">)</span>
+    t<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"..."</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>t <span class="token operator">==</span> None <span class="token operator">or</span> t <span class="token operator">==</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">break</span>
+    t<span class="token operator">=</span>int<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+    sum_<span class="token operator">=</span><span class="token number">0</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        p<span class="token operator">=</span>get<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">"Bar code..."</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Don't have this item"</span><span class="token punctuation">)</span>
+            <span class="token keyword">continue</span>
+        sum_<span class="token operator">=</span> sum_ <span class="token operator">+</span> int<span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">"RMB"</span><span class="token operator">+</span>p<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sum is %d"</span><span class="token operator">%</span>sum_<span class="token punctuation">)</span></code></pre>
 <p>详情请访问<a href="https://gitee.com/pybilly/shop" target="_blank" rel="noopener">我的码云仓库</a><br>下个项目再见，See you</p>
 
             </div>
@@ -766,22 +901,18 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Xie Zheyuan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                        <span class="chip bg-color">数学</span>
-                    </a>
                     
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
@@ -815,10 +946,10 @@
                     <div class="summary block-with-text">
                         
                             首先先安装模块
-1C:\Python36\python.exe -m pip install ybc-speech
+C:\Python36\python.exe -m pip install ybc-speech
 
 record:录制音频
-123456789101112131415161718def record(filename, s
+def record(filename, seconds=__SECONDS, to_dir=__T
                         
                     </div>
                     <div class="publish-info">
@@ -827,18 +958,18 @@ record:录制音频
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Xie Zheyuan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                        <span class="chip bg-color">计算机</span>
-                    </a>
                     
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
@@ -1030,7 +1161,7 @@ record:录制音频
         }
     </style>
     <center><div class="end_msg">
-        网站总字数    <span class="post-count">4.7k</span>
+        网站总字数    <span class="post-count">4.6k</span>
         </div></center>
 
     
